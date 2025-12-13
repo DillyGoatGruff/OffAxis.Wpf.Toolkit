@@ -1,0 +1,28 @@
+root = true
+
+[*.xaml]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[*.xml]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[*.csproj]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[*.slnx]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# extension used for directory level package version files
+[*.props]
+indent_style = space
+indent_size = 2
+tab_width = 2
+

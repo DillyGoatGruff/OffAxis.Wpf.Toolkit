@@ -1,69 +1,70 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-					xmlns:ctrlTools="clr-namespace:OffAxis.Wpf.Toolkit.Controls.TextBoxPromptTools"
+					          xmlns:ctrlTools="clr-namespace:OffAxis.Wpf.Toolkit.Controls.TextBoxPromptTools"
                     xmlns:otkc="clr-namespace:OffAxis.Wpf.Toolkit.Controls">
-	<Style TargetType="{x:Type otkc:TextBoxPrompt}">
-		<Setter Property="Background" Value="White"/>
-		<Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"/>
-		<Setter Property="BorderThickness" Value="1"/>
-		<Setter Property="IsTabStop" Value="False"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type otkc:TextBoxPrompt}">
-					<ControlTemplate.Resources>
-						<ctrlTools:IsNullOrWhiteSpaceVisibilityConverter x:Key="isNullOrWhiteSpaceVisibilityConverter"/>
-						<ctrlTools:IsNullOrWhiteSpaceVisibilityConverter x:Key="isNotNullOrWhiteSpaceVisibilityConverter"
-						NullOrWhiteSpaceValue="Hidden"
-						NotNullOrWhiteSpaceValue="Visible"/>
-					</ControlTemplate.Resources>
-                    
-					<Grid Margin="0,6,0,0">
-						<TextBox x:Name="PART_textbox" Padding="6,6,6,6"
-							CharacterCasing="{TemplateBinding CharacterCasing}"
-							BorderBrush="{TemplateBinding BorderBrush}"
-							BorderThickness="{TemplateBinding BorderThickness}"
-							Background="{TemplateBinding Background}"
-							Foreground="{TemplateBinding Foreground}"
-							TextAlignment="{TemplateBinding TextAlignment}"
-							Text="{Binding Text, UpdateSourceTrigger=PropertyChanged,
-								RelativeSource={RelativeSource TemplatedParent}}" >
-							<TextBox.Resources>
-								<Style TargetType="{x:Type Border}">
-									<Setter Property="CornerRadius" Value="{Binding CornerRadius, 
-									RelativeSource={RelativeSource AncestorType={x:Type otkc:TextBoxPrompt}}}"/>
-								</Style>
-							</TextBox.Resources>
-						</TextBox>
+  <Style TargetType="{x:Type otkc:TextBoxPrompt}">
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="IsTabStop" Value="False"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type otkc:TextBoxPrompt}">
+          <ControlTemplate.Resources>
+            <ctrlTools:IsNullOrWhiteSpaceVisibilityConverter x:Key="isNullOrWhiteSpaceVisibilityConverter"/>
+            <ctrlTools:IsNullOrWhiteSpaceVisibilityConverter x:Key="isNotNullOrWhiteSpaceVisibilityConverter"
+						    NullOrWhiteSpaceValue="Hidden"
+						    NotNullOrWhiteSpaceValue="Visible"/>
+          </ControlTemplate.Resources>
 
-						<Grid Margin="5,-5" HorizontalAlignment="Left" VerticalAlignment="Top"
+          <Grid Margin="0,6,0,0">
+            <TextBox x:Name="PART_textbox" Padding="6,6,6,6"
+							  CharacterCasing="{TemplateBinding CharacterCasing}"
+							  BorderBrush="{TemplateBinding BorderBrush}"
+							  BorderThickness="{TemplateBinding BorderThickness}"
+							  Background="{TemplateBinding Background}"
+							  Foreground="{TemplateBinding Foreground}"
+							  TextAlignment="{TemplateBinding TextAlignment}"
+							  Text="{Binding Text, UpdateSourceTrigger=PropertyChanged,
+								  RelativeSource={RelativeSource TemplatedParent}}" >
+              <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                  <Setter Property="CornerRadius" 
+                      Value="{Binding CornerRadius, 
+									      RelativeSource={RelativeSource AncestorType={x:Type otkc:TextBoxPrompt}}}"/>
+                </Style>
+              </TextBox.Resources>
+            </TextBox>
+
+            <Grid Margin="5,-5" HorizontalAlignment="Left" VerticalAlignment="Top"
 								Height="{Binding ActualHeight, ElementName=PART_textBlock}"
 								Visibility="{Binding Text, RelativeSource={RelativeSource TemplatedParent},
-										UpdateSourceTrigger=PropertyChanged,
-										Converter={StaticResource isNotNullOrWhiteSpaceVisibilityConverter}}">
-							<Grid.RowDefinitions>
-								<RowDefinition Height="*"/>
-								<RowDefinition Height="*"/>
-							</Grid.RowDefinitions>
+									UpdateSourceTrigger=PropertyChanged,
+									Converter={StaticResource isNotNullOrWhiteSpaceVisibilityConverter}}">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+              </Grid.RowDefinitions>
 
-							<Border Grid.Row="0" CornerRadius="3,3,0,0" BorderThickness="1,1,1,0"
-										Background="{TemplateBinding Background}"
-										BorderBrush="{Binding BorderBrush, ElementName=PART_textbox}"/>
-							<Border Grid.Row="1" Background="{TemplateBinding Background }"/>
+              <Border Grid.Row="0" CornerRadius="3,3,0,0" BorderThickness="1,1,1,0"
+							    Background="{TemplateBinding Background}"
+							    BorderBrush="{Binding BorderBrush, ElementName=PART_textbox}"/>
+              <Border Grid.Row="1" Background="{TemplateBinding Background }"/>
 
-							<TextBlock x:Name="PART_textBlock" Grid.RowSpan="2" Padding="3,0" IsHitTestVisible="False" FontSize="10" Opacity="0.75"
+              <TextBlock x:Name="PART_textBlock" Grid.RowSpan="2" Padding="3,0" IsHitTestVisible="False" FontSize="10" Opacity="0.75"
 								Text="{TemplateBinding Prompt}"/>
-						</Grid>
+            </Grid>
 
-						<TextBlock Padding="5,0" IsHitTestVisible="False" Opacity="0.75"
-							VerticalAlignment="Center" FontStyle="Italic"
-							Text="{TemplateBinding Prompt}"
-							TextAlignment="{TemplateBinding PromptAlignment}"
-							Visibility="{Binding Text, RelativeSource={RelativeSource TemplatedParent},
-								UpdateSourceTrigger=PropertyChanged,
-								Converter={StaticResource isNullOrWhiteSpaceVisibilityConverter}}"/>
-					</Grid>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
+            <TextBlock Padding="5,0" IsHitTestVisible="False" Opacity="0.75"
+							  VerticalAlignment="Center" FontStyle="Italic"
+							  Text="{TemplateBinding Prompt}"
+							  TextAlignment="{TemplateBinding PromptAlignment}"
+							  Visibility="{Binding Text, RelativeSource={RelativeSource TemplatedParent},
+								  UpdateSourceTrigger=PropertyChanged,
+								  Converter={StaticResource isNullOrWhiteSpaceVisibilityConverter}}"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
 </ResourceDictionary>
