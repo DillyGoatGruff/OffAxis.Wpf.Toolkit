@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UiThemes/Colors.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UiThemes/Brushes.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/CheckBox.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ComboBox.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/Button.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/RadioButton.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/TabControl.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/TabItem.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/TextBox.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ToggleButton.Style.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

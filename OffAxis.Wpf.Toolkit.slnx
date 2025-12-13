@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="OffAxis.Wpf.Toolkit/OffAxis.Wpf.Toolkit.csproj" />
+  <Project Path="Wpf.ToolkitDemo/Wpf.ToolkitDemo.csproj" />
+</Solution>
