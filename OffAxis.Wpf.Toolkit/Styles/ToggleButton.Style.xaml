@@ -1,0 +1,84 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- Default CornerRadius -->
+  <CornerRadius x:Key="ToggleButton.CornerRadius.Static">3</CornerRadius>
+  <CornerRadius x:Key="ToggleButton.CornerRadius.MouseOver">3</CornerRadius>
+  <CornerRadius x:Key="ToggleButton.CornerRadius.Pressed">3</CornerRadius>
+  <CornerRadius x:Key="ToggleButton.CornerRadius.Checked">3</CornerRadius>
+  <CornerRadius x:Key="ToggleButton.CornerRadius.CheckedMouseOver">3</CornerRadius>
+  <CornerRadius x:Key="ToggleButton.CornerRadius.CheckedPressed">3</CornerRadius>
+  <CornerRadius x:Key="ToggleButton.CornerRadius.Disabled">3</CornerRadius>
+
+  <Style x:Key="ToggleButton.Style" TargetType="ToggleButton">
+    <Setter Property="Background" Value="{DynamicResource Brushes.Background.Static}"/>
+    <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Static}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.Static}"/>
+    <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.Static}"/>
+    <Setter Property="Padding" Value="8,4"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ToggleButton">
+          <Border x:Name="border" 
+                  Background="{TemplateBinding Background}" 
+                  BorderBrush="{TemplateBinding BorderBrush}" 
+                  BorderThickness="{TemplateBinding BorderThickness}" 
+                  CornerRadius="{TemplateBinding Border.CornerRadius}" 
+                  Padding="{TemplateBinding Padding}">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.MouseOver}"/>
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.MouseOver}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.MouseOver}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.MouseOver}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.Pressed}"/>
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.Pressed}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Pressed}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.Pressed}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+              <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.Checked}"/>
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.Checked}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Checked}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.Checked}"/>
+            </Trigger>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="IsChecked" Value="True"/>
+                <Condition Property="IsMouseOver" Value="True"/>
+              </MultiTrigger.Conditions>
+              <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.CheckedMouseOver}"/>
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.CheckedMouseOver}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.CheckedMouseOver}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.CheckedMouseOver}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="IsChecked" Value="True"/>
+                <Condition Property="IsPressed" Value="True"/>
+              </MultiTrigger.Conditions>
+              <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.CheckedPressed}"/>
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.CheckedPressed}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.CheckedPressed}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.CheckedPressed}"/>
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.Disabled}"/>
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.Disabled}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Disabled}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.Disabled}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- Implicit ToggleButton style -->
+  <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButton.Style}"/>
+</ResourceDictionary>

@@ -1,0 +1,55 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  
+  <SolidColorBrush x:Key="Brushes.Background.Static" Color="{DynamicResource Colors.Background.Static}"/>
+  <SolidColorBrush x:Key="Brushes.Background.MouseOver" Color="{DynamicResource Colors.Background.MouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.Background.Pressed" Color="{DynamicResource Colors.Background.Pressed}"/>
+  <SolidColorBrush x:Key="Brushes.Background.Checked" Color="{DynamicResource Colors.Background.Checked}"/>
+  <SolidColorBrush x:Key="Brushes.Background.CheckedMouseOver" Color="{DynamicResource Colors.Background.CheckedMouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.Background.CheckedPressed" Color="{DynamicResource Colors.Background.CheckedPressed}"/>
+  <SolidColorBrush x:Key="Brushes.Background.Disabled" Color="{DynamicResource Colors.Background.Disabled}"/>
+
+  <SolidColorBrush x:Key="Brushes.Foreground.Static" Color="{DynamicResource Colors.Foreground.Static}"/>
+  <SolidColorBrush x:Key="Brushes.Foreground.MouseOver" Color="{DynamicResource Colors.Foreground.MouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.Foreground.Pressed" Color="{DynamicResource Colors.Foreground.Pressed}"/>
+  <SolidColorBrush x:Key="Brushes.Foreground.Checked" Color="{DynamicResource Colors.Foreground.Checked}"/>
+  <SolidColorBrush x:Key="Brushes.Foreground.CheckedMouseOver" Color="{DynamicResource Colors.Foreground.CheckedMouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.Foreground.CheckedPressed" Color="{DynamicResource Colors.Foreground.CheckedPressed}"/>
+  <SolidColorBrush x:Key="Brushes.Foreground.Disabled" Color="{DynamicResource Colors.Foreground.Disabled}"/>
+
+  <SolidColorBrush x:Key="Brushes.Border.Static" Color="{DynamicResource Colors.Border.Static}"/>
+  <SolidColorBrush x:Key="Brushes.Border.MouseOver" Color="{DynamicResource Colors.Border.MouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.Border.Pressed" Color="{DynamicResource Colors.Border.Pressed}"/>
+  <SolidColorBrush x:Key="Brushes.Border.Checked" Color="{DynamicResource Colors.Border.Checked}"/>
+  <SolidColorBrush x:Key="Brushes.Border.CheckedMouseOver" Color="{DynamicResource Colors.Border.CheckedMouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.Border.CheckedPressed" Color="{DynamicResource Colors.Border.CheckedPressed}"/>
+  <SolidColorBrush x:Key="Brushes.Border.Disabled" Color="{DynamicResource Colors.Border.Disabled}"/>
+
+  <SolidColorBrush x:Key="Brushes.PanelBackground.Primary" Color="{DynamicResource Colors.PanelBackground.Primary}"/>
+  <SolidColorBrush x:Key="Brushes.PanelBackground.Secondary" Color="{DynamicResource Colors.PanelBackground.Secondary}"/>
+  <SolidColorBrush x:Key="Brushes.PanelForeground.Primary" Color="{DynamicResource Colors.PanelForeground.Primary}"/>
+  <SolidColorBrush x:Key="Brushes.PanelForeground.Secondary" Color="{DynamicResource Colors.PanelForeground.Primary}"/>
+
+  <SolidColorBrush x:Key="Brushes.InputBackground.Static" Color="{DynamicResource Colors.InputBackground.Static}"/>
+  <SolidColorBrush x:Key="Brushes.InputBackground.MouseOver" Color="{DynamicResource Colors.InputBackground.MouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.InputBackground.Pressed" Color="{DynamicResource Colors.InputBackground.Pressed}"/>
+  <SolidColorBrush x:Key="Brushes.InputBackground.Checked" Color="{DynamicResource Colors.InputBackground.Checked}"/>
+  <SolidColorBrush x:Key="Brushes.InputBackground.CheckedMouseOver" Color="{DynamicResource Colors.InputBackground.CheckedMouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.InputBackground.CheckedPressed" Color="{DynamicResource Colors.InputBackground.CheckedPressed}"/>
+  <SolidColorBrush x:Key="Brushes.InputBackground.Disabled" Color="{DynamicResource Colors.InputBackground.Disabled}"/>
+
+  <SolidColorBrush x:Key="Brushes.InputForeground.Static" Color="{DynamicResource Colors.InputForeground.Static}"/>
+  <SolidColorBrush x:Key="Brushes.InputForeground.MouseOver" Color="{DynamicResource Colors.InputForeground.MouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.InputForeground.Pressed" Color="{DynamicResource Colors.InputForeground.Pressed}"/>
+  <SolidColorBrush x:Key="Brushes.InputForeground.Checked" Color="{DynamicResource Colors.InputForeground.Checked}"/>
+  <SolidColorBrush x:Key="Brushes.InputForeground.CheckedMouseOver" Color="{DynamicResource Colors.InputForeground.CheckedMouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.InputForeground.CheckedPressed" Color="{DynamicResource Colors.InputForeground.CheckedPressed}"/>
+  <SolidColorBrush x:Key="Brushes.InputForeground.Disabled" Color="{DynamicResource Colors.InputForeground.Disabled}"/>
+
+  <!-- Shared state mark brushes (for CheckBox checkmark and RadioButton dot) -->
+  <SolidColorBrush x:Key="Brushes.StateMark.Checked" Color="{DynamicResource Colors.StateMark.Checked}"/>
+  <SolidColorBrush x:Key="Brushes.StateMark.CheckedMouseOver" Color="{DynamicResource Colors.StateMark.CheckedMouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.StateMark.CheckedPressed" Color="{DynamicResource Colors.StateMark.CheckedPressed}"/>
+  <SolidColorBrush x:Key="Brushes.StateMark.Disabled" Color="{DynamicResource Colors.StateMark.Disabled}"/>
+
+</ResourceDictionary>
