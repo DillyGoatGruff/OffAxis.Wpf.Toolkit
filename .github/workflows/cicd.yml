@@ -60,8 +60,8 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build OffAxis.Wpf.Toolkit
-        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
+      - name: Build solution
+        run: dotnet build --configuration Release --no-restore
 
       - name: Pack NuGet package
         run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --output ./nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
