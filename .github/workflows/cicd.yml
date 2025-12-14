@@ -67,4 +67,4 @@ jobs:
         run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
 
       - name: Publish to NuGet
-        run: dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push "${{ github.workspace }}/nupkg/*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
