@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
@@ -13,11 +13,20 @@
       A library for WPF applications providing custom controls, a flexible theming system, and essential development tools.
       Includes adorners, attached properties, converters, and utilities designed to support MVVM pattern development in modern .NET applications.
     </Description>
-    <PackageTags>wpf;ui;toolkit;theme;controls;windows</PackageTags>
+    <PackageTags>offaxis;wpf;ui;toolkit;theme;controls;wpftoolkit</PackageTags>
     <RepositoryUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <LicenseExpression>MIT</LicenseExpression>
     <PackageProjectUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</PackageProjectUrl>
+
+    <!-- Debug symbols and Source Link configuration -->
+    <DebugType>embedded</DebugType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+  </ItemGroup>
 
 </Project>
