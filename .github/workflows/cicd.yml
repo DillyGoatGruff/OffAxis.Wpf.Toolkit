@@ -57,16 +57,25 @@ jobs:
           "VERSION=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
           Write-Host "Extracted version: $version"
 
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.PROJECT_PATH }}
+
+      - name: Build project
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore /p:Version=${{ steps.tag_version.outputs.VERSION }} /p:ContinuousIntegrationBuild=true
+
       - name: Pack NuGet package
-        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
+        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --no-restore --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
 
       - name: Publish to NuGet
+        shell: pwsh
         run: |
-          $packages = Get-ChildItem -Path "${{ github.workspace }}/nupkg/*.nupkg"
-          foreach ($package in $packages) {
-            dotnet nuget push $package.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          foreach ($nupkg in Get-ChildItem -Path "${{ github.workspace }}/nupkg/*.nupkg") {
+            Write-Host "Publishing package: $($nupkg.Name)"
+            dotnet nuget push $nupkg.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+            if($LASTEXITCODE -ne 0) { throw "Package publishing failed" }
           }
-          $symbols = Get-ChildItem -Path "${{ github.workspace }}/nupkg/*.snupkg"
-          foreach ($symbol in $symbols) {
-            dotnet nuget push $symbol.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          foreach ($snupkg in Get-ChildItem -Path "${{ github.workspace }}/nupkg/*.snupkg") {
+            Write-Host "Publishing symbols: $($snupkg.Name)"
+            dotnet nuget push $snupkg.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+            if($LASTEXITCODE -ne 0) { throw "Symbols publishing failed" }
           }
