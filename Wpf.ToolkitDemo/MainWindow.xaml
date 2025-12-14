@@ -191,12 +191,12 @@
                          Margin="0,0,0,8"/>
               <TextBox Text="Disabled text" IsEnabled="False" Margin="0,0,0,12"/>
               
-              <TextBlock Text="Scoped Override (Light Peach):" 
+              <TextBlock Text="Scoped Override (Purple):" 
                          Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                          Margin="0,0,0,8"/>
               <Border Padding="8" BorderBrush="#44FFFFFF" BorderThickness="1">
                 <Border.Resources>
-                  <SolidColorBrush x:Key="Brushes.InputBackground.Static" Color="#FFFFF0E0"/>
+                  <SolidColorBrush x:Key="Brushes.InputBackground.Static" Color="Purple"/>
                 </Border.Resources>
                 <TextBox Text="Custom background color"/>
               </Border>
