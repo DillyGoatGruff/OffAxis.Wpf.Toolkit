@@ -1,0 +1,71 @@
+name: CI/CD - Publish to NuGet
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+
+env:
+  PROJECT_PATH: 'OffAxis.Wpf.Toolkit/OffAxis.Wpf.Toolkit.csproj'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    name: Build & Test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            10.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build solution
+        run: dotnet build --configuration Release --no-restore
+
+  publish:
+    runs-on: windows-latest
+    name: Publish to NuGet
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            10.x
+
+      - name: Extract version from tag
+        id: tag_version
+        shell: pwsh
+        run: |
+          $tag = "${{ github.ref }}"
+          $version = $tag -replace 'refs/tags/v', ''
+          "VERSION=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          Write-Host "Extracted version: $version"
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build OffAxis.Wpf.Toolkit
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
+
+      - name: Pack NuGet package
+        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --output ./nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
+
+      - name: Publish to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        if: secrets.NUGET_API_KEY != ''

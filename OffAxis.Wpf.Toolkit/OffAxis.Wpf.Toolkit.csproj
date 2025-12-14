@@ -5,6 +5,19 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>OffAxis.Wpf.Toolkit</PackageId>
+    <Authors>DillyGoatGruff</Authors>
+    <Description>
+      A library for WPF applications providing custom controls, a flexible theming system, and essential development tools.
+      Includes adorners, attached properties, converters, and utilities designed to support MVVM pattern development in modern .NET applications.
+    </Description>
+    <PackageTags>wpf;ui;toolkit;theme;controls;windows</PackageTags>
+    <RepositoryUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <LicenseExpression>MIT</LicenseExpression>
+    <PackageProjectUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>

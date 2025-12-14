@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Github Workflows/">
+    <File Path=".github/workflows/cicd.yml" />
+  </Folder>
   <Project Path="OffAxis.Wpf.Toolkit/OffAxis.Wpf.Toolkit.csproj" />
   <Project Path="Wpf.ToolkitDemo/Wpf.ToolkitDemo.csproj" />
 </Solution>
