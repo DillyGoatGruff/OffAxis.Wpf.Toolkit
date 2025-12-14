@@ -79,6 +79,4 @@
     </Setter>
   </Style>
 
-  <!-- Implicit ToggleButton style -->
-  <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButton.Style}"/>
 </ResourceDictionary>

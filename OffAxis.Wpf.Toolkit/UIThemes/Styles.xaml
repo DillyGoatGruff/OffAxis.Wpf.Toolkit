@@ -4,14 +4,28 @@
   <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UiThemes/Colors.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UiThemes/Brushes.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/Button.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/CheckBox.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ComboBox.Style.xaml"/>
-    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/Button.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/RadioButton.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ScrollBar.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ScrollViewer.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/TabControl.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/TabItem.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/TextBox.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ToggleButton.Style.xaml"/>
   </ResourceDictionary.MergedDictionaries>
+
+  <!-- Implicit Styles -->
+  <Style TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Style}"/>
+  <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBox.Style}"/>
+  <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBox.Style}"/>
+  <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButton.Style}"/>
+  <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ScrollBar.Style}"/>
+  <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource ScrollViewer.Style}"/>
+  <Style TargetType="{x:Type TabControl}" BasedOn="{StaticResource TabControl.Style}"/>
+  <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource TabItem.Style}"/>
+  <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBox.Style}"/>
+  <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButton.Style}"/>
 
 </ResourceDictionary>

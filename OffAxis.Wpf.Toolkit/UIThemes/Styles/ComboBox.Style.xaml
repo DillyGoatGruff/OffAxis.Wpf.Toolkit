@@ -369,7 +369,4 @@
     </Style.Triggers>
   </Style>
 
-  <!-- Implicit ComboBox style -->
-  <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBox.Style}"/>
-
 </ResourceDictionary>

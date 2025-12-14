@@ -56,4 +56,11 @@
   <Color x:Key="Colors.StateMark.CheckedMouseOver">#FFFF8F00</Color>
   <Color x:Key="Colors.StateMark.CheckedPressed">#FFFF6F00</Color>
   <Color x:Key="Colors.StateMark.Disabled">#FF7B8189</Color>
+
+  <!-- ScrollBar Colors -->
+  <Color x:Key="Colors.ScrollBar.Track">#FF62757D</Color>
+  <Color x:Key="Colors.ScrollBar.Thumb.Static">#FF1E90FF</Color>
+  <Color x:Key="Colors.ScrollBar.Thumb.MouseOver">#FF3FA9FF</Color>
+  <Color x:Key="Colors.ScrollBar.Thumb.Pressed">#FF1177D9</Color>
+  <Color x:Key="Colors.ScrollBar.Thumb.Disabled">#FF62757D</Color>
 </ResourceDictionary>

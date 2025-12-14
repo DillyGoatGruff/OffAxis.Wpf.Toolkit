@@ -5,12 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:Wpf.ToolkitDemo"
         Background="{StaticResource Brushes.PanelBackground.Secondary}"
-        Title="Wpf.Toolkit Demo" Height="700" Width="1200">
-  <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="20">
+        Title="Wpf.Toolkit Demo" Height="900" Width="1200">
+  <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Padding="20">
     <StackPanel>
       
       <!-- Header -->
-      <TextBlock Text="WpfToolkit Style Demo" 
+      <TextBlock Text="WpfToolkit Demo" 
                  FontSize="28" 
                  FontWeight="Bold" 
                  Foreground="{StaticResource Brushes.PanelForeground.Primary}"

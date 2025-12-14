@@ -50,6 +50,4 @@
     </Setter>
   </Style>
 
-  <!-- Implicit TextBox style -->
-  <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBox.Style}"/>
 </ResourceDictionary>

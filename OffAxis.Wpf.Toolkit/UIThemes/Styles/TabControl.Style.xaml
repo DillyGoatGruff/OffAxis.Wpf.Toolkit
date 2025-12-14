@@ -76,7 +76,4 @@
     </Setter>
   </Style>
 
-  <!-- Implicit TabControl style -->
-  <Style TargetType="{x:Type TabControl}" BasedOn="{StaticResource TabControl.Style}"/>
-
 </ResourceDictionary>

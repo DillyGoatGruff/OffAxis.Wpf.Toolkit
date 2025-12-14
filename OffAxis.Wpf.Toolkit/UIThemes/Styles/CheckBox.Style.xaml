@@ -115,7 +115,4 @@
     </Setter>
   </Style>
 
-  <!-- Implicit CheckBox style -->
-  <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBox.Style}"/>
-
 </ResourceDictionary>

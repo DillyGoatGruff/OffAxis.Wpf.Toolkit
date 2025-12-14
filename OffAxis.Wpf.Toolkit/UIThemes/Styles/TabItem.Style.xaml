@@ -115,8 +115,5 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-  
-  <!-- Implicit TabItem style -->
-  <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource TabItem.Style}"/>
 
 </ResourceDictionary>

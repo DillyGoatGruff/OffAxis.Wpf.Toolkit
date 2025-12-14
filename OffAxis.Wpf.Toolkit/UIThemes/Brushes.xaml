@@ -52,4 +52,11 @@
   <SolidColorBrush x:Key="Brushes.StateMark.CheckedPressed" Color="{DynamicResource Colors.StateMark.CheckedPressed}"/>
   <SolidColorBrush x:Key="Brushes.StateMark.Disabled" Color="{DynamicResource Colors.StateMark.Disabled}"/>
 
+  <!-- ScrollBar Brushes -->
+  <SolidColorBrush x:Key="Brushes.ScrollBar.Track" Color="{DynamicResource Colors.ScrollBar.Track}"/>
+  <SolidColorBrush x:Key="Brushes.ScrollBar.Thumb.Static" Color="{DynamicResource Colors.ScrollBar.Thumb.Static}"/>
+  <SolidColorBrush x:Key="Brushes.ScrollBar.Thumb.MouseOver" Color="{DynamicResource Colors.ScrollBar.Thumb.MouseOver}"/>
+  <SolidColorBrush x:Key="Brushes.ScrollBar.Thumb.Pressed" Color="{DynamicResource Colors.ScrollBar.Thumb.Pressed}"/>
+  <SolidColorBrush x:Key="Brushes.ScrollBar.Thumb.Disabled" Color="{DynamicResource Colors.ScrollBar.Thumb.Disabled}"/>
+
 </ResourceDictionary>

@@ -98,7 +98,4 @@
     </Setter>
   </Style>
 
-  <!-- Implicit RadioButton style -->
-  <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButton.Style}"/>
-
 </ResourceDictionary>

@@ -50,6 +50,4 @@
     </Setter>
   </Style>
 
-  <!-- Implicit Button style -->
-  <Style TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Style}"/>
 </ResourceDictionary>
