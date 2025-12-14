@@ -30,6 +30,7 @@
   
   <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
     <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+    <Setter Property="Background" Value="{DynamicResource Brushes.ScrollBar.Thumb.Static}"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -41,7 +42,7 @@
         <ControlTemplate TargetType="{x:Type RepeatButton}">
           <Border x:Name="border" 
                   BorderThickness="1" SnapsToDevicePixels="true"
-                  Background="{DynamicResource Brushes.Background.Static}" 
+                  Background="{TemplateBinding Background}" 
                   BorderBrush="{DynamicResource Brushes.Border.Static}">
             <ContentPresenter x:Name="contentPresenter" Focusable="False" 
                               Margin="{TemplateBinding Padding}" 
@@ -51,16 +52,16 @@
           </Border>
           <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-              <Setter Property="Background" TargetName="border" Value="{DynamicResource Brushes.Background.MouseOver}"/>
+              <Setter Property="Background" TargetName="border" Value="{DynamicResource Brushes.ScrollBar.Thumb.MouseOver}"/>
               <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Brushes.Border.MouseOver}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="true">
-              <Setter Property="Background" TargetName="border" Value="{DynamicResource Brushes.Background.Pressed}"/>
+              <Setter Property="Background" TargetName="border" Value="{DynamicResource Brushes.ScrollBar.Thumb.Pressed}"/>
               <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Brushes.Border.Pressed}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
               <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-              <Setter Property="Background" TargetName="border" Value="{DynamicResource Brushes.Background.Disabled}"/>
+              <Setter Property="Background" TargetName="border" Value="{DynamicResource Brushes.ScrollBar.Thumb.Disabled}"/>
               <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Brushes.Border.Disabled}"/>
             </Trigger>
           </ControlTemplate.Triggers>
