@@ -61,10 +61,11 @@ jobs:
         run: dotnet restore ${{ env.PROJECT_PATH }}
 
       - name: Build project
-        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore /p:Version=${{ steps.tag_version.outputs.VERSION }} /p:ContinuousIntegrationBuild=true /p:DebugType=embedded
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore /p:Version=${{ steps.tag_version.outputs.VERSION }} /p:ContinuousIntegrationBuild=true
 
       - name: Pack NuGet package
-        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --no-restore --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
+        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --no-restore --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }} /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+
 
       - name: Publish to NuGet
         shell: pwsh

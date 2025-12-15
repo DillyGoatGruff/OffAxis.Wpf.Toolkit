@@ -23,20 +23,24 @@
     <!-- Debug symbols and Source Link configuration -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <DebugType>embedded</DebugType>
+    <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    
-
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <!-- Add DebuggableAttribute to improve breakpoint binding in Release -->
   <ItemGroup Condition="'$(Configuration)'=='Release'">
     <AssemblyAttribute Include="System.Diagnostics.DebuggableAttribute">
       <_Parameter1>System.Diagnostics.DebuggableAttribute+DebuggingModes.Default | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+
   </ItemGroup>
+
 
 </Project>
