@@ -64,8 +64,7 @@ jobs:
         run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore /p:Version=${{ steps.tag_version.outputs.VERSION }} /p:ContinuousIntegrationBuild=true
 
       - name: Pack NuGet package
-        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --no-restore --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }} /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
-
+        run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --no-restore --output ${{ github.workspace }}/nupkg /p:Version=${{ steps.tag_version.outputs.VERSION }}
 
       - name: Publish to NuGet
         shell: pwsh
@@ -75,6 +74,7 @@ jobs:
             dotnet nuget push $nupkg.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
             if($LASTEXITCODE -ne 0) { throw "Package publishing failed" }
           }
+
           foreach ($snupkg in Get-ChildItem -Path "${{ github.workspace }}/nupkg/*.snupkg") {
             Write-Host "Publishing symbols: $($snupkg.Name)"
             dotnet nuget push $snupkg.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
