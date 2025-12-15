@@ -20,14 +20,12 @@
     <LicenseExpression>MIT</LicenseExpression>
     <PackageProjectUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</PackageProjectUrl>
 
-    <!-- Debug symbols and Source Link configuration -->
+    <!-- Source Link configuration -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <!-- Disable PDBs in Release to avoid JMC prompt -->
+  <!-- Disable PDBs in Release to avoid Just My Code prompt -->
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>

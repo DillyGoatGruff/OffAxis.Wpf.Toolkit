@@ -5,6 +5,9 @@ using System.Windows.Media;
 
 namespace OffAxis.Wpf.Toolkit.Adorners
 {
+    /// <summary>
+    /// Adds a Border around the adorned element
+    /// </summary>
     public class BorderAdorner : Adorner
     {
         #region Adorner Implementation
@@ -12,6 +15,11 @@ namespace OffAxis.Wpf.Toolkit.Adorners
         private readonly VisualCollection _visualCollection;
         private UIElement _adornerElement;
 
+        /// <summary>
+        /// Creates an instance of the BorderAdorner.
+        /// </summary>
+        /// <param name="adornedElement">The element that the adorner will border.</param>
+        /// <param name="adornerElement">The adorner that going around the adorned element.</param>
         public BorderAdorner(UIElement adornedElement, UIElement adornerElement) : base(adornedElement)
         {
             _adornerElement = adornerElement;
