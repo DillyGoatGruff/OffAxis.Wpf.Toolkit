@@ -4,7 +4,7 @@
   <!-- Default CornerRadius -->
   <CornerRadius x:Key="Button.CornerRadius.Static">5</CornerRadius>
   <CornerRadius x:Key="Button.CornerRadius.MouseOver">5</CornerRadius>
-  <CornerRadius x:Key="Button.CornerRadius.IsPressed">5</CornerRadius>
+  <CornerRadius x:Key="Button.CornerRadius.Pressed">5</CornerRadius>
   <CornerRadius x:Key="Button.CornerRadius.Disabled">5</CornerRadius>
 
   <Style x:Key="Button.Style" TargetType="{x:Type Button}">
@@ -36,7 +36,7 @@
               <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.Pressed}"/>
               <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource Brushes.Border.Pressed}"/>
               <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Pressed}"/>
-              <Setter Property="Border.CornerRadius" Value="{DynamicResource Button.CornerRadius.IsPressed}"/>
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource Button.CornerRadius.Pressed}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
               <Setter TargetName="border" Property="Background" Value="{DynamicResource Brushes.Background.Disabled}"/>
