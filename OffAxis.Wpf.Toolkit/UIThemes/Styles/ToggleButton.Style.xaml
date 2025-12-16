@@ -15,7 +15,7 @@
     <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Static}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.Static}"/>
     <Setter Property="Border.CornerRadius" Value="{DynamicResource ToggleButton.CornerRadius.Static}"/>
-    <Setter Property="Padding" Value="8,4"/>
+    <Setter Property="Padding" Value="2,0"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Template">
       <Setter.Value>

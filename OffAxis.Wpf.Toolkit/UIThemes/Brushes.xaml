@@ -28,7 +28,7 @@
   <SolidColorBrush x:Key="Brushes.PanelBackground.Primary" Color="{DynamicResource Colors.PanelBackground.Primary}"/>
   <SolidColorBrush x:Key="Brushes.PanelBackground.Secondary" Color="{DynamicResource Colors.PanelBackground.Secondary}"/>
   <SolidColorBrush x:Key="Brushes.PanelForeground.Primary" Color="{DynamicResource Colors.PanelForeground.Primary}"/>
-  <SolidColorBrush x:Key="Brushes.PanelForeground.Secondary" Color="{DynamicResource Colors.PanelForeground.Primary}"/>
+  <SolidColorBrush x:Key="Brushes.PanelForeground.Secondary" Color="{DynamicResource Colors.PanelForeground.Secondary}"/>
 
   <SolidColorBrush x:Key="Brushes.InputBackground.Static" Color="{DynamicResource Colors.InputBackground.Static}"/>
   <SolidColorBrush x:Key="Brushes.InputBackground.MouseOver" Color="{DynamicResource Colors.InputBackground.MouseOver}"/>
