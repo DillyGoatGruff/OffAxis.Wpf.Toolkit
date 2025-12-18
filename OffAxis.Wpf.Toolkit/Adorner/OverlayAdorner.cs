@@ -172,9 +172,17 @@ namespace OffAxis.Wpf.Toolkit.Adorners
 
         private static void AssignAdornmentDataContextToAdornedElementChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            FrameworkElement adornedElement = (FrameworkElement)d;
+            if (d is not FrameworkElement adornedElement)
+            {
+                return;
+            }
+
             FrameworkElement? adornerElement = GetAdornment(adornedElement);
-            if (adornerElement is not null && e.NewValue is bool b && b == true)
+
+            // If Adornment is already set, apply the DataContext assignment
+            if (adornerElement is not null 
+                && e.NewValue is bool assignDataContext 
+                && assignDataContext)
             {
                 adornerElement.DataContext = adornedElement;
             }
