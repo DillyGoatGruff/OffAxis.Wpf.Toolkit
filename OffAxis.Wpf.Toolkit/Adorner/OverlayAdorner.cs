@@ -157,7 +157,7 @@ namespace OffAxis.Wpf.Toolkit.Adorners
 
         // Using a DependencyProperty as the backing store for AssignAdornmentDataContextToAdornedElement.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty AssignAdornmentDataContextToAdornedElementProperty =
-            DependencyProperty.RegisterAttached("SyncAdornmentDataContextToAdornedElement", typeof(bool), typeof(OverlayAdorner), new FrameworkPropertyMetadata(false,
+            DependencyProperty.RegisterAttached("AssignAdornmentDataContextToAdornedElement", typeof(bool), typeof(OverlayAdorner), new FrameworkPropertyMetadata(false,
                 FrameworkPropertyMetadataOptions.NotDataBindable, AssignAdornmentDataContextToAdornedElementChanged));
 
         public static bool GetAssignAdornmentDataContextToAdornedElement(DependencyObject obj)
