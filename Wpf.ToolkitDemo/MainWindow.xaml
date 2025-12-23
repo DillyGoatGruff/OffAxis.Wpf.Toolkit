@@ -125,17 +125,16 @@
           </Border>
 
           <!-- RadioButton Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
+          <GroupBox Margin="0,0,0,16" 
+                  Padding="16" BorderThickness="2" FontSize="18"
+                  Header="Radio Buttons In GroupBox">
             <StackPanel>
               <TextBlock Text="Radio Buttons" 
                          FontSize="18" 
                          FontWeight="Bold" 
                          Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                          Margin="0,0,0,12"/>
-              
+
               <TextBlock Text="Group 1:" 
                          Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                          Margin="0,0,0,8"/>
@@ -144,7 +143,7 @@
                 <RadioButton Content="Option B" GroupName="Group1" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
                 <RadioButton Content="Option C" GroupName="Group1" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
               </WrapPanel>
-              
+
               <TextBlock Text="Group 2 (with disabled):" 
                          Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                          Margin="0,0,0,8"/>
@@ -153,8 +152,7 @@
                 <RadioButton Content="Disabled" GroupName="Group2" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
               </WrapPanel>
             </StackPanel>
-          </Border>
-
+          </GroupBox>
         </StackPanel>
 
         <!-- Right Column -->

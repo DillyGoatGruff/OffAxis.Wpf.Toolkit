@@ -7,6 +7,7 @@
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/Button.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/CheckBox.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ComboBox.Style.xaml"/>
+    <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/GroupBox/GroupBox.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/RadioButton.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ScrollBar.Style.xaml"/>
     <ResourceDictionary Source="/OffAxis.Wpf.Toolkit;component/UIThemes/Styles/ScrollViewer.Style.xaml"/>
@@ -20,6 +21,7 @@
   <Style TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Style}"/>
   <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBox.Style}"/>
   <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBox.Style}"/>
+  <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource GroupBox.Style}"/>
   <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButton.Style}"/>
   <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ScrollBar.Style}"/>
   <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource ScrollViewer.Style}"/>
