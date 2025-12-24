@@ -3,19 +3,20 @@
                     xmlns:con="clr-namespace:OffAxis.Wpf.Toolkit.UIThemes.Styles.GroupBox.Converters"
                     xmlns:ap="clr-namespace:OffAxis.Wpf.Toolkit.UIThemes.Styles.GroupBox.AttachedProperties">
 
-  <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
   <con:MultiplyByParameterConverter x:Key="multiplyByParameterConverter" />
-  
+
   <con:HeaderVerticalOffsetConverter x:Key="headerVerticalOffsetConverter"/>
   <con:HeaderHorizontalOffsetConverter x:Key="headerHorizontalOffsetConverter"/>
 
+  <con:BorderThicknessConverter x:Key="borderThicknessConverter"/>
+
   <Thickness x:Key="GroupBox.InnerBorderThickness">1</Thickness>
   <CornerRadius x:Key="GroupBox.CornerRadius">5</CornerRadius>
-  <Color x:Key="GroupBox.Colors.InnerBorderBrush">#FFD5DFE5</Color>
-  <SolidColorBrush x:Key="GroupBox.Brushes.InnerBorderBrush" Color="{DynamicResource GroupBox.Colors.InnerBorderBrush}"/>
+
+  <SolidColorBrush x:Key="GroupBox.InnerBorderBrush" Color="DarkSlateBlue"/>
 
   <Style x:Key="GroupBox.Style" TargetType="{x:Type GroupBox}">
-    <Setter Property="BorderBrush" Value="{DynamicResource GroupBox.Brushes.InnerBorderBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource GroupBox.InnerBorderBrush}"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Static}"/>
     <Setter Property="ap:GroupBoxProperties.InnerBorderThickness" Value="{DynamicResource GroupBox.InnerBorderThickness}"/>
@@ -27,54 +28,77 @@
               <RowDefinition Height="auto"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="1" Grid.RowSpan="2"
+            <Border Grid.Row="1"
                     CornerRadius="{DynamicResource GroupBox.CornerRadius}"
-                    BorderBrush="{DynamicResource Brushes.Border.Static}"
-                    BorderThickness="{TemplateBinding BorderThickness}" >
-              <Border CornerRadius="{DynamicResource GroupBox.CornerRadius}"
-                      BorderBrush="{TemplateBinding BorderBrush}" 
-                      BorderThickness="{DynamicResource GroupBox.InnerBorderThickness}">
-                <Border CornerRadius="{DynamicResource GroupBox.CornerRadius}"
-                        Background="{DynamicResource Brushes.PanelBackground.Primary}"
-                        BorderBrush="{DynamicResource Brushes.Border.Static}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                  <ContentPresenter Grid.Row="2" 
-                                    Margin="{TemplateBinding Padding}" 
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-
-                </Border>
-              </Border>
+                    Background="{DynamicResource Brushes.PanelBackground.Primary}"
+                    BorderBrush="{DynamicResource Brushes.Border.Static}">
+              <Border.BorderThickness>
+                <MultiBinding Converter="{StaticResource borderThicknessConverter}">
+                  <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}"/>
+                  <Binding Path="(ap:GroupBoxProperties.InnerBorderThickness)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                </MultiBinding>
+              </Border.BorderThickness>
+              <ContentPresenter Grid.Row="2" 
+                                Margin="{TemplateBinding Padding}" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
             </Border>
-            <Grid Grid.RowSpan="2">
+
+            <!-- Content's Inner Border -->
+            <Border Grid.Row="1"
+                    Margin="{TemplateBinding BorderThickness}"
+                    CornerRadius="{DynamicResource GroupBox.CornerRadius}"
+                    BorderBrush="{DynamicResource GroupBox.InnerBorderBrush}"
+                    BorderThickness="{DynamicResource GroupBox.InnerBorderThickness}" />
+
+            <!-- Header -->
+            <Grid Grid.RowSpan="2" 
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left">
               <Grid.Margin>
                 <MultiBinding Converter="{StaticResource headerHorizontalOffsetConverter}">
                   <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}"/>
                   <Binding Path="(ap:GroupBoxProperties.InnerBorderThickness)" RelativeSource="{RelativeSource TemplatedParent}"/>
                 </MultiBinding>
               </Grid.Margin>
-              <Border x:Name="Header" Grid.RowSpan="3" 
-                      VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      CornerRadius="{DynamicResource GroupBox.CornerRadius}"
-                      Background="{DynamicResource Brushes.PanelBackground.Primary}"
-                      BorderThickness="{TemplateBinding BorderThickness}"
-                      BorderBrush="{DynamicResource Brushes.Border.Static}"
-                      MinHeight="{TemplateBinding BorderThickness, 
-                        Converter={StaticResource multiplyByParameterConverter},
-                        ConverterParameter=3}">
-                <Border.Margin>
+
+              <Grid>
+                <Grid.Margin>
                   <MultiBinding Converter="{StaticResource headerVerticalOffsetConverter}">
                     <Binding Path="ActualHeight" ElementName="contentPresenterHeader"/>
-                    <Binding Path="(ap:GroupBoxProperties.InnerBorderThickness)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}"/>
                   </MultiBinding>
-                </Border.Margin>
+                </Grid.Margin>
 
-                <ContentPresenter Grid.RowSpan="2" Margin="5,0" x:Name="contentPresenterHeader"
-                                  ContentSource="Header" 
-                                  VerticalAlignment="Center"
-                                  HorizontalAlignment="Center"
-                                  RecognizesAccessKey="True" 
-                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-              </Border>
+                <Border x:Name="Header" Grid.RowSpan="3" 
+                        VerticalAlignment="Top" HorizontalAlignment="Left" 
+                        CornerRadius="{DynamicResource GroupBox.CornerRadius}"
+                        Background="{DynamicResource Brushes.PanelBackground.Primary}"
+                        BorderBrush="{DynamicResource Brushes.Border.Static}"
+                        MinHeight="{TemplateBinding BorderThickness, 
+                          Converter={StaticResource multiplyByParameterConverter},
+                          ConverterParameter=3}">
+                  <Border.BorderThickness>
+                    <MultiBinding Converter="{StaticResource borderThicknessConverter}">
+                      <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}"/>
+                      <Binding Path="(ap:GroupBoxProperties.InnerBorderThickness)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                    </MultiBinding>
+                  </Border.BorderThickness>
+
+                  <ContentPresenter Grid.RowSpan="2" Margin="5,0" x:Name="contentPresenterHeader"
+                                    ContentSource="Header" 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    RecognizesAccessKey="True" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                </Border>
+
+                <!-- Header's Inner Border -->
+                <Border Margin="{TemplateBinding BorderThickness}"
+                        CornerRadius="{DynamicResource GroupBox.CornerRadius}"
+                        BorderBrush="{DynamicResource GroupBox.InnerBorderBrush}"
+                        BorderThickness="{DynamicResource GroupBox.InnerBorderThickness}" />
+
+              </Grid>
             </Grid>
           </Grid>
         </ControlTemplate>

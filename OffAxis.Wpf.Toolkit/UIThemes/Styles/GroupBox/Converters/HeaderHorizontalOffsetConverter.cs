@@ -17,6 +17,8 @@ namespace OffAxis.Wpf.Toolkit.UIThemes.Styles.GroupBox.Converters
                 && values[1] is Thickness innerBorderThickness)
             {
                 double borderSum = borderThickness.Left * 2 + innerBorderThickness.Left;
+                
+                // +7 to add a little extra padding so the header text isn't flush against the border
                 return new Thickness(borderSum + 7, 0, 0, 0);
             }
 

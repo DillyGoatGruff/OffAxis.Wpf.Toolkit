@@ -8,14 +8,13 @@ namespace OffAxis.Wpf.Toolkit.UIThemes.Styles.GroupBox.Converters
     {
         public object Convert(object?[]? values, Type targetTypes, object parameter, CultureInfo culture)
         {
-            if (values == null || values.Length != 2)
+            if (values != null &&
+                values.Length == 2 &&
+                TryGetDoubleFromObject(values[0], out double height) &&
+                values[1] is Thickness borderThickness)
             {
-                return DependencyProperty.UnsetValue;
-            }
-
-            if (TryGetDoubleFromObject(values[0], out double height) && values[1] is Thickness innerBorderThickness)
-            {
-                return new Thickness(0, -height / 2 + innerBorderThickness.Top / 2, 0, 0);
+                // The offset should be to set the header to be centered on the inner border which appears right below the template BorderThickness
+                return new Thickness(0, -height / 2 - borderThickness.Top, 0, 0);
             }
 
             return DependencyProperty.UnsetValue;
