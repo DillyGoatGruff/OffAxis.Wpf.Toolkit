@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 env:
   PROJECT_PATH: 'OffAxis.Wpf.Toolkit/OffAxis.Wpf.Toolkit.csproj'
