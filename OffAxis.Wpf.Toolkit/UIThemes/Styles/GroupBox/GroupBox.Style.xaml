@@ -7,6 +7,8 @@
 
   <con:HeaderVerticalOffsetConverter x:Key="headerVerticalOffsetConverter"/>
   <con:HeaderHorizontalOffsetConverter x:Key="headerHorizontalOffsetConverter"/>
+  
+  <con:HeaderVerticalOffsetToMarginConverter x:Key="headerVerticalOffsetToMarginConverter"/>
 
   <con:BorderThicknessConverter x:Key="borderThicknessConverter"/>
 
@@ -23,7 +25,10 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type GroupBox}">
-          <Grid SnapsToDevicePixels="true">
+          <Grid SnapsToDevicePixels="true"
+                Margin="{Binding Margin, 
+                  ElementName=grdVerticalOffsetHeader, 
+                  Converter={StaticResource headerVerticalOffsetToMarginConverter}}">
             <Grid.RowDefinitions>
               <RowDefinition Height="auto"/>
               <RowDefinition Height="Auto"/>
@@ -31,15 +36,17 @@
             <Border Grid.Row="1"
                     CornerRadius="{DynamicResource GroupBox.CornerRadius}"
                     Background="{DynamicResource Brushes.PanelBackground.Primary}"
-                    BorderBrush="{DynamicResource Brushes.Border.Static}">
+                    BorderBrush="{DynamicResource Brushes.Border.Static}"
+                    Padding="{Binding Margin, 
+                      ElementName=grdVerticalOffsetHeader, 
+                      Converter={StaticResource headerVerticalOffsetToMarginConverter}}">
               <Border.BorderThickness>
                 <MultiBinding Converter="{StaticResource borderThicknessConverter}">
                   <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}"/>
                   <Binding Path="(ap:GroupBoxProperties.InnerBorderThickness)" RelativeSource="{RelativeSource TemplatedParent}"/>
                 </MultiBinding>
               </Border.BorderThickness>
-              <ContentPresenter Grid.Row="2" 
-                                Margin="{TemplateBinding Padding}" 
+              <ContentPresenter Margin="{TemplateBinding Padding}" 
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
             </Border>
 
@@ -51,7 +58,7 @@
                     BorderThickness="{DynamicResource GroupBox.InnerBorderThickness}" />
 
             <!-- Header -->
-            <Grid Grid.RowSpan="2" 
+            <Grid Grid.RowSpan="2"
                   VerticalAlignment="Top"
                   HorizontalAlignment="Left">
               <Grid.Margin>
@@ -61,7 +68,7 @@
                 </MultiBinding>
               </Grid.Margin>
 
-              <Grid>
+              <Grid x:Name="grdVerticalOffsetHeader">
                 <Grid.Margin>
                   <MultiBinding Converter="{StaticResource headerVerticalOffsetConverter}">
                     <Binding Path="ActualHeight" ElementName="contentPresenterHeader"/>
@@ -69,7 +76,7 @@
                   </MultiBinding>
                 </Grid.Margin>
 
-                <Border x:Name="Header" Grid.RowSpan="3" 
+                <Border x:Name="Header"
                         VerticalAlignment="Top" HorizontalAlignment="Left" 
                         CornerRadius="{DynamicResource GroupBox.CornerRadius}"
                         Background="{DynamicResource Brushes.PanelBackground.Primary}"
