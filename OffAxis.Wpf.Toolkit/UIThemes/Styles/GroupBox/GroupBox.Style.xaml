@@ -7,8 +7,8 @@
 
   <con:HeaderVerticalOffsetConverter x:Key="headerVerticalOffsetConverter"/>
   <con:HeaderHorizontalOffsetConverter x:Key="headerHorizontalOffsetConverter"/>
-  
-  <con:HeaderVerticalOffsetToMarginConverter x:Key="headerVerticalOffsetToMarginConverter"/>
+
+  <con:HeaderVerticalOffsetToTopThicknessConverter x:Key="headerVerticalOffsetToTopThicknessConverter"/>
 
   <con:BorderThicknessConverter x:Key="borderThicknessConverter"/>
 
@@ -28,7 +28,7 @@
           <Grid SnapsToDevicePixels="true"
                 Margin="{Binding Margin, 
                   ElementName=grdVerticalOffsetHeader, 
-                  Converter={StaticResource headerVerticalOffsetToMarginConverter}}">
+                  Converter={StaticResource headerVerticalOffsetToTopThicknessConverter}}">
             <Grid.RowDefinitions>
               <RowDefinition Height="auto"/>
               <RowDefinition Height="Auto"/>
@@ -39,7 +39,7 @@
                     BorderBrush="{DynamicResource Brushes.Border.Static}"
                     Padding="{Binding Margin, 
                       ElementName=grdVerticalOffsetHeader, 
-                      Converter={StaticResource headerVerticalOffsetToMarginConverter}}">
+                      Converter={StaticResource headerVerticalOffsetToTopThicknessConverter}}">
               <Border.BorderThickness>
                 <MultiBinding Converter="{StaticResource borderThicknessConverter}">
                   <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}"/>
