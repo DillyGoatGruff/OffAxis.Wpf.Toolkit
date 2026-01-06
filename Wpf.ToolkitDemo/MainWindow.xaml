@@ -6,372 +6,428 @@
         xmlns:local="clr-namespace:Wpf.ToolkitDemo"
         Background="{StaticResource Brushes.PanelBackground.Secondary}"
         Title="Wpf.Toolkit Demo" Height="900" Width="1200">
-  <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Padding="20">
-    <StackPanel>
-      
-      <!-- Header -->
-      <TextBlock Text="WpfToolkit Demo" 
-                 FontSize="28" 
-                 FontWeight="Bold" 
-                 Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                 Margin="0,0,0,20"/>
-      
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="20"/>
-          <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <!-- Left Column -->
-        <StackPanel Grid.Column="0">
-          
-          <!-- Button Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
-            <StackPanel>
-              <StackPanel.Resources>
-                <Style x:Key="DangerButtonStyle" TargetType="Button" BasedOn="{StaticResource Button.Style}">
-                  <Setter Property="Background" Value="Crimson"/>
-                  <Setter Property="Foreground" Value="White"/>
-                </Style>
-                <Style x:Key="SuccessButtonStyle" TargetType="Button" BasedOn="{StaticResource Button.Style}">
-                  <Setter Property="Background" Value="ForestGreen"/>
-                  <Setter Property="Foreground" Value="White"/>
-                </Style>
-              </StackPanel.Resources>
-              
-              <TextBlock Text="Buttons" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-              
-              <TextBlock Text="Standard Buttons:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <WrapPanel Margin="0,0,0,12">
-                <Button Content="Normal Button" Width="120" Margin="0,0,8,8"/>
-                <Button Content="Disabled Button" Width="120" Margin="0,0,8,8" IsEnabled="False"/>
-              </WrapPanel>
-              
-              <TextBlock Text="Custom Style (BasedOn):" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <WrapPanel Margin="0,0,0,12">
-                <Button Content="Danger" Style="{StaticResource DangerButtonStyle}" Width="120" Margin="0,0,8,8"/>
-                <Button Content="Success" Style="{StaticResource SuccessButtonStyle}" Width="120" Margin="0,0,8,8"/>
-              </WrapPanel>
-              
-              <TextBlock Text="Scoped Override (Orange Background):" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <Border Padding="8" BorderBrush="#44FFFFFF" BorderThickness="1">
-                <Border.Resources>
-                  <SolidColorBrush x:Key="Brushes.Background.Static" Color="Orange"/>
-                </Border.Resources>
-                <WrapPanel>
-                  <Button Content="Scoped 1" Width="120" Margin="0,0,8,0"/>
-                  <Button Content="Scoped 2" Width="120"/>
-                </WrapPanel>
-              </Border>
-            </StackPanel>
-          </Border>
-
-          <!-- ToggleButton Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
-            <StackPanel>
-              <TextBlock Text="Toggle Buttons" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-              <WrapPanel Margin="0,0,0,8">
-                <ToggleButton Content="Toggle Off" Width="120" Margin="0,0,8,8"/>
-                <ToggleButton Content="Toggle On" Width="120" Margin="0,0,8,8" IsChecked="True"/>
-                <ToggleButton Content="Disabled Off" Width="120" Margin="0,0,8,8" IsEnabled="False"/>
-                <ToggleButton Content="Disabled On" Width="120" Margin="0,0,8,8" IsChecked="True" IsEnabled="False"/>
-              </WrapPanel>
-            </StackPanel>
-          </Border>
-
-          <!-- CheckBox Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
-            <StackPanel>
-              <TextBlock Text="CheckBoxes" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-              
-              <WrapPanel Margin="0,0,0,8">
-                <CheckBox Content="Unchecked" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-                <CheckBox Content="Checked" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-                <CheckBox Content="Indeterminate" IsThreeState="True" IsChecked="{x:Null}" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-              </WrapPanel>
-              <WrapPanel>
-                <CheckBox Content="Disabled Unchecked" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-                <CheckBox Content="Disabled Checked" IsChecked="True" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-              </WrapPanel>
-            </StackPanel>
-          </Border>
-
-          <!-- RadioButton Section -->
-          <GroupBox Margin="0,0,0,16" 
-                  Padding="16" BorderThickness="1" FontSize="18"
-                  Header="Radio Buttons In GroupBox">
-            <StackPanel>
-              <TextBlock Text="Radio Buttons" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-
-              <TextBlock Text="Group 1:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <WrapPanel Margin="0,0,0,12">
-                <RadioButton Content="Option A" GroupName="Group1" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-                <RadioButton Content="Option B" GroupName="Group1" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-                <RadioButton Content="Option C" GroupName="Group1" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-              </WrapPanel>
-
-              <TextBlock Text="Group 2 (with disabled):" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <WrapPanel>
-                <RadioButton Content="Enabled" GroupName="Group2" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-                <RadioButton Content="Disabled" GroupName="Group2" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
-              </WrapPanel>
-            </StackPanel>
-          </GroupBox>
-        </StackPanel>
-
-        <!-- Right Column -->
-        <StackPanel Grid.Column="2">
-
-          <!-- TextBox Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
-            <StackPanel>
-              <TextBlock Text="Text Boxes" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-              
-              <TextBlock Text="Normal TextBox:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <TextBox Text="Enter text here..." Margin="0,0,0,12"/>
-              
-              <TextBlock Text="Multi-line TextBox:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <TextBox Text="Line 1&#x0a;Line 2&#x0a;Line 3" 
-                       AcceptsReturn="True"
-                       TextWrapping="Wrap"
-                       Height="80" 
-                       Margin="0,0,0,12"/>
-              
-              <TextBlock Text="Disabled TextBox:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <TextBox Text="Disabled text" IsEnabled="False" Margin="0,0,0,12"/>
-              
-              <TextBlock Text="Scoped Override (Purple):" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <Border Padding="8" BorderBrush="#44FFFFFF" BorderThickness="1">
-                <Border.Resources>
-                  <SolidColorBrush x:Key="Brushes.InputBackground.Static" Color="Purple"/>
-                </Border.Resources>
-                <TextBox Text="Custom background color"/>
-              </Border>
-            </StackPanel>
-          </Border>
-
-          <!-- ComboBox Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
-            <StackPanel>
-              <TextBlock Text="Combo Boxes" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-              
-              <TextBlock Text="Standard ComboBox:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <ComboBox SelectedIndex="0" Margin="0,0,0,12">
-                <ComboBoxItem>First Option</ComboBoxItem>
-                <ComboBoxItem>Second Option</ComboBoxItem>
-                <ComboBoxItem>Third Option</ComboBoxItem>
-                <ComboBoxItem>Fourth Option</ComboBoxItem>
-              </ComboBox>
-              
-              <TextBlock Text="Disabled ComboBox:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <ComboBox SelectedIndex="1" IsEnabled="False" Margin="0,0,0,12">
-                <ComboBoxItem>Option A</ComboBoxItem>
-                <ComboBoxItem>Option B (Selected)</ComboBoxItem>
-                <ComboBoxItem>Option C</ComboBoxItem>
-              </ComboBox>
-              
-              <TextBlock Text="Editable ComboBox:" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,8"/>
-              <ComboBox IsEditable="True" Text="Type or select...">
-                <ComboBoxItem>Editable Option 1</ComboBoxItem>
-                <ComboBoxItem>Editable Option 2</ComboBoxItem>
-                <ComboBoxItem>Editable Option 3</ComboBoxItem>
-              </ComboBox>
-            </StackPanel>
-          </Border>
-
-          <!-- TabControl Section -->
-          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-                  Padding="16" 
-                  Margin="0,0,0,16"
-                  CornerRadius="4">
-            <StackPanel>
-              <TextBlock Text="Tab Control" 
-                         FontSize="18" 
-                         FontWeight="Bold" 
-                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                         Margin="0,0,0,12"/>
-              
-              <TabControl Height="250">
-                <TabItem Header="Overview">
-                  <Border Padding="16">
-                    <StackPanel>
-                      <TextBlock Text="Welcome to the WpfToolkit Demo!" 
-                                 FontSize="16" 
-                                 FontWeight="Bold"
-                                 Margin="0,0,0,12"/>
-                      <TextBlock TextWrapping="Wrap" Margin="0,0,0,8">
-                        This demo showcases all the styled controls available in the WpfToolkit.
-                      </TextBlock>
-                      <TextBlock TextWrapping="Wrap" Margin="0,0,0,8">
-                        All controls use a consistent theming system based on Colors and Brushes.
-                      </TextBlock>
-                      <TextBlock TextWrapping="Wrap">
-                        You can override colors at any scope level for flexible customization.
-                      </TextBlock>
-                    </StackPanel>
-                  </Border>
-                </TabItem>
-                
-                <TabItem Header="Form Demo">
-                  <Border Padding="16">
-                    <StackPanel>
-                      <TextBlock Text="Sample Form" FontSize="14" FontWeight="Bold" Margin="0,0,0,12"/>
-                      
-                      <TextBlock Text="Name:" Margin="0,0,0,4"/>
-                      <TextBox Text="" Margin="0,0,0,12"/>
-                      
-                      <TextBlock Text="Country:" Margin="0,0,0,4"/>
-                      <ComboBox SelectedIndex="0" Margin="0,0,0,12">
-                        <ComboBoxItem>United States</ComboBoxItem>
-                        <ComboBoxItem>Canada</ComboBoxItem>
-                        <ComboBoxItem>United Kingdom</ComboBoxItem>
-                        <ComboBoxItem>Other</ComboBoxItem>
-                      </ComboBox>
-                      
-                      <CheckBox Content="Subscribe to newsletter" Margin="0,0,0,12"/>
-                      
-                      <StackPanel Orientation="Horizontal">
-                        <Button Content="Submit" Width="100" Margin="0,0,8,0"/>
-                        <Button Content="Cancel" Width="100"/>
-                      </StackPanel>
-                    </StackPanel>
-                  </Border>
-                </TabItem>
-                
-                <TabItem Header="Settings">
-                  <Border Padding="16">
-                    <StackPanel>
-                      <TextBlock Text="Preferences" FontSize="14" FontWeight="Bold" Margin="0,0,0,12"/>
-                      
-                      <CheckBox Content="Enable notifications" IsChecked="True" Margin="0,0,0,8"/>
-                      <CheckBox Content="Auto-save" IsChecked="True" Margin="0,0,0,8"/>
-                      <CheckBox Content="Dark mode" Margin="0,0,0,16"/>
-                      
-                      <TextBlock Text="Language:" Margin="0,0,0,4"/>
-                      <RadioButton Content="English" GroupName="Language" IsChecked="True" Margin="0,0,0,4"/>
-                      <RadioButton Content="Spanish" GroupName="Language" Margin="0,0,0,4"/>
-                      <RadioButton Content="French" GroupName="Language" Margin="0,0,0,4"/>
-                    </StackPanel>
-                  </Border>
-                </TabItem>
-                
-                <TabItem Header="Disabled" IsEnabled="False">
-                  <Border Padding="16">
-                    <TextBlock Text="This tab is disabled"/>
-                  </Border>
-                </TabItem>
-              </TabControl>
-            </StackPanel>
-          </Border>
-
-        </StackPanel>
-      </Grid>
-
-      <!-- Footer -->
-      <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
-              Padding="16" 
-              CornerRadius="4"
-              Margin="0,0,0,20">
+  <TabControl>
+    <TabItem Header="Controls">
+      <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Padding="20">
         <StackPanel>
-          <TextBlock Text="Theming System" 
-                     FontSize="18" 
+
+          <!-- Header -->
+          <TextBlock Text="WpfToolkit Demo" 
+                     FontSize="28" 
                      FontWeight="Bold" 
                      Foreground="{StaticResource Brushes.PanelForeground.Primary}"
-                     Margin="0,0,0,12"/>
-          
-          <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
-                     TextWrapping="Wrap"
-                     Margin="0,0,0,8">
-            The WpfToolkit uses a three-tier theming system:
-          </TextBlock>
-          
-          <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
-                     TextWrapping="Wrap"
-                     Margin="16,0,0,4">
-            1. Colors.xaml - Defines base color values (e.g., Colors.Background.Static)
-          </TextBlock>
-          <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
-                     TextWrapping="Wrap"
-                     Margin="16,0,0,4">
-            2. Brushes.xaml - Creates SolidColorBrush resources from colors (e.g., Brushes.Background.Static)
-          </TextBlock>
-          <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
-                     TextWrapping="Wrap"
-                     Margin="16,0,0,12">
-            3. Control Styles - Use brushes to style controls with consistent states (Static, MouseOver, Pressed, Disabled, etc.)
-          </TextBlock>
-          
-          <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
-                     TextWrapping="Wrap">
-            You can override colors or brushes at the application, window, or container level for flexible theming!
-          </TextBlock>
-        </StackPanel>
-      </Border>
+                     Margin="0,0,0,20"/>
 
-    </StackPanel>
-  </ScrollViewer>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="20"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Column -->
+            <StackPanel Grid.Column="0">
+
+              <!-- Button Section -->
+              <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                      Padding="16" 
+                      Margin="0,0,0,16"
+                      CornerRadius="4">
+                <StackPanel>
+                  <StackPanel.Resources>
+                    <Style x:Key="DangerButtonStyle" TargetType="Button" BasedOn="{StaticResource Button.Style}">
+                      <Setter Property="Background" Value="Crimson"/>
+                      <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                    <Style x:Key="SuccessButtonStyle" TargetType="Button" BasedOn="{StaticResource Button.Style}">
+                      <Setter Property="Background" Value="ForestGreen"/>
+                      <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                  </StackPanel.Resources>
+
+                  <TextBlock Text="Buttons" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Standard Buttons:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <WrapPanel Margin="0,0,0,12">
+                    <Button Content="Normal Button" Width="120" Margin="0,0,8,8"/>
+                    <Button Content="Disabled Button" Width="120" Margin="0,0,8,8" IsEnabled="False"/>
+                  </WrapPanel>
+
+                  <TextBlock Text="Custom Style (BasedOn):" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <WrapPanel Margin="0,0,0,12">
+                    <Button Content="Danger" Style="{StaticResource DangerButtonStyle}" Width="120" Margin="0,0,8,8"/>
+                    <Button Content="Success" Style="{StaticResource SuccessButtonStyle}" Width="120" Margin="0,0,8,8"/>
+                  </WrapPanel>
+
+                  <TextBlock Text="Scoped Override (Orange Background):" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <Border Padding="8" BorderBrush="#44FFFFFF" BorderThickness="1">
+                    <Border.Resources>
+                      <SolidColorBrush x:Key="Brushes.Background.Static" Color="Orange"/>
+                    </Border.Resources>
+                    <WrapPanel>
+                      <Button Content="Scoped 1" Width="120" Margin="0,0,8,0"/>
+                      <Button Content="Scoped 2" Width="120"/>
+                    </WrapPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+
+              <!-- ToggleButton Section -->
+              <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                      Padding="16" 
+                      Margin="0,0,0,16"
+                      CornerRadius="4">
+                <StackPanel>
+                  <TextBlock Text="Toggle Buttons" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+                  <WrapPanel Margin="0,0,0,8">
+                    <ToggleButton Content="Toggle Off" Width="120" Margin="0,0,8,8"/>
+                    <ToggleButton Content="Toggle On" Width="120" Margin="0,0,8,8" IsChecked="True"/>
+                    <ToggleButton Content="Disabled Off" Width="120" Margin="0,0,8,8" IsEnabled="False"/>
+                    <ToggleButton Content="Disabled On" Width="120" Margin="0,0,8,8" IsChecked="True" IsEnabled="False"/>
+                  </WrapPanel>
+                </StackPanel>
+              </Border>
+
+              <!-- CheckBox Section -->
+              <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                      Padding="16" 
+                      Margin="0,0,0,16"
+                      CornerRadius="4">
+                <StackPanel>
+                  <TextBlock Text="CheckBoxes" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+
+                  <WrapPanel Margin="0,0,0,8">
+                    <CheckBox Content="Unchecked" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                    <CheckBox Content="Checked" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                    <CheckBox Content="Indeterminate" IsThreeState="True" IsChecked="{x:Null}" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                  </WrapPanel>
+                  <WrapPanel>
+                    <CheckBox Content="Disabled Unchecked" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                    <CheckBox Content="Disabled Checked" IsChecked="True" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                  </WrapPanel>
+                </StackPanel>
+              </Border>
+
+              <!-- RadioButton Section -->
+              <GroupBox Margin="0,0,0,16" 
+                      Padding="16" BorderThickness="1" FontSize="18"
+                      Header="Radio Buttons In GroupBox">
+                <StackPanel>
+                  <TextBlock Text="Radio Buttons" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Group 1:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <WrapPanel Margin="0,0,0,12">
+                    <RadioButton Content="Option A" GroupName="Group1" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                    <RadioButton Content="Option B" GroupName="Group1" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                    <RadioButton Content="Option C" GroupName="Group1" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                  </WrapPanel>
+
+                  <TextBlock Text="Group 2 (with disabled):" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <WrapPanel>
+                    <RadioButton Content="Enabled" GroupName="Group2" IsChecked="True" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                    <RadioButton Content="Disabled" GroupName="Group2" IsEnabled="False" Margin="0,0,16,8" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+                  </WrapPanel>
+                </StackPanel>
+              </GroupBox>
+            </StackPanel>
+
+            <!-- Right Column -->
+            <StackPanel Grid.Column="2">
+
+              <!-- TextBox Section -->
+              <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                      Padding="16" 
+                      Margin="0,0,0,16"
+                      CornerRadius="4">
+                <StackPanel>
+                  <TextBlock Text="Text Boxes" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Normal TextBox:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <TextBox Text="Enter text here..." Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Multi-line TextBox:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <TextBox Text="Line 1&#x0a;Line 2&#x0a;Line 3" 
+                           AcceptsReturn="True"
+                           TextWrapping="Wrap"
+                           Height="80" 
+                           Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Disabled TextBox:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <TextBox Text="Disabled text" IsEnabled="False" Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Scoped Override (Purple):" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <Border Padding="8" BorderBrush="#44FFFFFF" BorderThickness="1">
+                    <Border.Resources>
+                      <SolidColorBrush x:Key="Brushes.InputBackground.Static" Color="Purple"/>
+                    </Border.Resources>
+                    <TextBox Text="Custom background color"/>
+                  </Border>
+                </StackPanel>
+              </Border>
+
+              <!-- ComboBox Section -->
+              <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                      Padding="16" 
+                      Margin="0,0,0,16"
+                      CornerRadius="4">
+                <StackPanel>
+                  <TextBlock Text="Combo Boxes" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+
+                  <TextBlock Text="Standard ComboBox:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <ComboBox SelectedIndex="0" Margin="0,0,0,12">
+                    <ComboBoxItem>First Option</ComboBoxItem>
+                    <ComboBoxItem>Second Option</ComboBoxItem>
+                    <ComboBoxItem>Third Option</ComboBoxItem>
+                    <ComboBoxItem>Fourth Option</ComboBoxItem>
+                  </ComboBox>
+
+                  <TextBlock Text="Disabled ComboBox:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <ComboBox SelectedIndex="1" IsEnabled="False" Margin="0,0,0,12">
+                    <ComboBoxItem>Option A</ComboBoxItem>
+                    <ComboBoxItem>Option B (Selected)</ComboBoxItem>
+                    <ComboBoxItem>Option C</ComboBoxItem>
+                  </ComboBox>
+
+                  <TextBlock Text="Editable ComboBox:" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,8"/>
+                  <ComboBox IsEditable="True" Text="Type or select...">
+                    <ComboBoxItem>Editable Option 1</ComboBoxItem>
+                    <ComboBoxItem>Editable Option 2</ComboBoxItem>
+                    <ComboBoxItem>Editable Option 3</ComboBoxItem>
+                  </ComboBox>
+                </StackPanel>
+              </Border>
+
+              <!-- TabControl Section -->
+              <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                      Padding="16" 
+                      Margin="0,0,0,16"
+                      CornerRadius="4">
+                <StackPanel>
+                  <TextBlock Text="Tab Control" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                             Margin="0,0,0,12"/>
+
+                  <TabControl Height="250">
+                    <TabItem Header="Overview">
+                      <Border Padding="16">
+                        <StackPanel>
+                          <TextBlock Text="Welcome to the WpfToolkit Demo!" 
+                                     FontSize="16" 
+                                     FontWeight="Bold"
+                                     Margin="0,0,0,12"/>
+                          <TextBlock TextWrapping="Wrap" Margin="0,0,0,8">
+                            This demo showcases all the styled controls available in the WpfToolkit.
+                          </TextBlock>
+                          <TextBlock TextWrapping="Wrap" Margin="0,0,0,8">
+                            All controls use a consistent theming system based on Colors and Brushes.
+                          </TextBlock>
+                          <TextBlock TextWrapping="Wrap">
+                            You can override colors at any scope level for flexible customization.
+                          </TextBlock>
+                        </StackPanel>
+                      </Border>
+                    </TabItem>
+
+                    <TabItem Header="Form Demo">
+                      <Border Padding="16">
+                        <StackPanel>
+                          <TextBlock Text="Sample Form" FontSize="14" FontWeight="Bold" Margin="0,0,0,12"/>
+
+                          <TextBlock Text="Name:" Margin="0,0,0,4"/>
+                          <TextBox Text="" Margin="0,0,0,12"/>
+
+                          <TextBlock Text="Country:" Margin="0,0,0,4"/>
+                          <ComboBox SelectedIndex="0" Margin="0,0,0,12">
+                            <ComboBoxItem>United States</ComboBoxItem>
+                            <ComboBoxItem>Canada</ComboBoxItem>
+                            <ComboBoxItem>United Kingdom</ComboBoxItem>
+                            <ComboBoxItem>Other</ComboBoxItem>
+                          </ComboBox>
+
+                          <CheckBox Content="Subscribe to newsletter" Margin="0,0,0,12"/>
+
+                          <StackPanel Orientation="Horizontal">
+                            <Button Content="Submit" Width="100" Margin="0,0,8,0"/>
+                            <Button Content="Cancel" Width="100"/>
+                          </StackPanel>
+                        </StackPanel>
+                      </Border>
+                    </TabItem>
+
+                    <TabItem Header="Settings">
+                      <Border Padding="16">
+                        <StackPanel>
+                          <TextBlock Text="Preferences" FontSize="14" FontWeight="Bold" Margin="0,0,0,12"/>
+
+                          <CheckBox Content="Enable notifications" IsChecked="True" Margin="0,0,0,8"/>
+                          <CheckBox Content="Auto-save" IsChecked="True" Margin="0,0,0,8"/>
+                          <CheckBox Content="Dark mode" Margin="0,0,0,16"/>
+
+                          <TextBlock Text="Language:" Margin="0,0,0,4"/>
+                          <RadioButton Content="English" GroupName="Language" IsChecked="True" Margin="0,0,0,4"/>
+                          <RadioButton Content="Spanish" GroupName="Language" Margin="0,0,0,4"/>
+                          <RadioButton Content="French" GroupName="Language" Margin="0,0,0,4"/>
+                        </StackPanel>
+                      </Border>
+                    </TabItem>
+
+                    <TabItem Header="Disabled" IsEnabled="False">
+                      <Border Padding="16">
+                        <TextBlock Text="This tab is disabled"/>
+                      </Border>
+                    </TabItem>
+                  </TabControl>
+                </StackPanel>
+              </Border>
+
+            </StackPanel>
+          </Grid>
+
+          <!-- Footer -->
+          <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                  Padding="16" 
+                  CornerRadius="4"
+                  Margin="0,0,0,20">
+            <StackPanel>
+              <TextBlock Text="Theming System" 
+                         FontSize="18" 
+                         FontWeight="Bold" 
+                         Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                         Margin="0,0,0,12"/>
+
+              <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
+                         TextWrapping="Wrap"
+                         Margin="0,0,0,8">
+                The WpfToolkit uses a three-tier theming system:
+              </TextBlock>
+
+              <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
+                         TextWrapping="Wrap"
+                         Margin="16,0,0,4">
+                1. Colors.xaml - Defines base color values (e.g., Colors.Background.Static)
+              </TextBlock>
+              <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
+                         TextWrapping="Wrap"
+                         Margin="16,0,0,4">
+                2. Brushes.xaml - Creates SolidColorBrush resources from colors (e.g., Brushes.Background.Static)
+              </TextBlock>
+              <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
+                         TextWrapping="Wrap"
+                         Margin="16,0,0,12">
+                3. Control Styles - Use brushes to style controls with consistent states (Static, MouseOver, Pressed, Disabled, etc.)
+              </TextBlock>
+
+              <TextBlock Foreground="{StaticResource Brushes.PanelForeground.Primary}" 
+                         TextWrapping="Wrap">
+                You can override colors or brushes at the application, window, or container level for flexible theming!
+              </TextBlock>
+            </StackPanel>
+          </Border>
+
+        </StackPanel>
+      </ScrollViewer>
+    </TabItem>
+
+    <!-- Additional tabs can be added here -->
+    <TabItem Header="Page 2">
+      <TabItem.Resources>
+        <x:Array x:Key="SampleStrings" Type="system:String" xmlns:system="clr-namespace:System;assembly=mscorlib">
+          <system:String>First Item</system:String>
+          <system:String>Second Item</system:String>
+          <system:String>Third Item</system:String>
+          <system:String>Fourth Item</system:String>
+          <system:String>Fifth Item</system:String>
+        </x:Array>
+      </TabItem.Resources>
+      <Border Padding="20">
+        <DockPanel>
+          <GroupBox DockPanel.Dock="Top" Margin="0,5" Header="Group1">
+
+            <TextBlock Text="Add your content here" Foreground="{StaticResource Brushes.PanelForeground.Primary}"/>
+          </GroupBox>
+
+          <GroupBox DockPanel.Dock="Top" Margin="0,5" Header="Group 2">
+            <ScrollViewer Grid.Row="1" CanContentScroll="True"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto">
+              <!-- Items -->
+              <ItemsControl ItemsSource="{StaticResource SampleStrings}" ScrollViewer.CanContentScroll="True">
+                <!-- Add separators between rows -->
+                <ItemsControl.ItemContainerStyle>
+                  <Style TargetType="ContentPresenter">
+                    <Setter Property="Margin" Value="0,2,0,2"/>
+                  </Style>
+                </ItemsControl.ItemContainerStyle>
+                
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate>
+                    <Border Background="{StaticResource Brushes.PanelBackground.Primary}" 
+                            Padding="12" 
+                            CornerRadius="4"
+                            BorderThickness="1"
+                            BorderBrush="{StaticResource Brushes.Border.Static}">
+                      <TextBlock Text="{Binding}" 
+                                 Foreground="{StaticResource Brushes.PanelForeground.Primary}"
+                                 FontSize="14"/>
+                    </Border>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ItemsControl>
+            </ScrollViewer>
+          </GroupBox>
+        </DockPanel>
+      </Border>
+    </TabItem>
+
+  </TabControl>
 </Window>

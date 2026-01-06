@@ -31,7 +31,7 @@
                   Converter={StaticResource headerVerticalOffsetToTopThicknessConverter}}">
             <Grid.RowDefinitions>
               <RowDefinition Height="auto"/>
-              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="1"
                     CornerRadius="{DynamicResource GroupBox.CornerRadius}"
