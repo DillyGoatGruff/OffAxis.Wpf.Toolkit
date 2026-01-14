@@ -12,6 +12,8 @@
     <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Static}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.Static}"/>
     <Setter Property="Border.CornerRadius" Value="{DynamicResource Button.CornerRadius.Static}"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
     <Setter Property="Padding" Value="8,4"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Template">
@@ -23,7 +25,8 @@
                   BorderThickness="{TemplateBinding BorderThickness}" 
                   CornerRadius="{TemplateBinding Border.CornerRadius}"
                   Padding="{TemplateBinding Padding}">
-            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
           </Border>
           <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
