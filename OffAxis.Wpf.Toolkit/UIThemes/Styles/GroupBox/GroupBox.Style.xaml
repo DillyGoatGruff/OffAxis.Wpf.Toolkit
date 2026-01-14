@@ -47,9 +47,7 @@
                 </MultiBinding>
               </Border.BorderThickness>
               <ContentPresenter Margin="{TemplateBinding Padding}" 
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
             </Border>
 
             <!-- Content's Inner Border -->
