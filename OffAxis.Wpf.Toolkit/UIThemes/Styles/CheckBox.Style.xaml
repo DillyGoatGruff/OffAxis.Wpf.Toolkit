@@ -51,10 +51,11 @@
 
             <!-- Content -->
             <ContentPresenter Grid.Column="2"
-                                          VerticalAlignment="Center"
-                                          RecognizesAccessKey="True"
-                                          ContentSource="Content"
-                                          Margin="0"/>
+                              RecognizesAccessKey="True"
+                              ContentSource="Content"
+                              Margin="0"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 
           </Grid>
 

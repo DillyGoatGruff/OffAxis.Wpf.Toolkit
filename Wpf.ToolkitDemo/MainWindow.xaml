@@ -55,7 +55,7 @@
                              Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                              Margin="0,0,0,8"/>
                   <WrapPanel Margin="0,0,0,12">
-                    <Button Content="Normal Button" Width="120" Margin="0,0,8,8"/>
+                    <Button Content="Normal Button" Width="120" Margin="0,0,8,8" HorizontalContentAlignment="Left"/>
                     <Button Content="Disabled Button" Width="120" Margin="0,0,8,8" IsEnabled="False"/>
                   </WrapPanel>
 
@@ -94,7 +94,7 @@
                              Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                              Margin="0,0,0,12"/>
                   <WrapPanel Margin="0,0,0,8">
-                    <ToggleButton Content="Toggle Off" Width="120" Margin="0,0,8,8"/>
+                    <ToggleButton Content="Toggle Off" Width="120" Margin="0,0,8,8" HorizontalContentAlignment="Left"/>
                     <ToggleButton Content="Toggle On" Width="120" Margin="0,0,8,8" IsChecked="True"/>
                     <ToggleButton Content="Disabled Off" Width="120" Margin="0,0,8,8" IsEnabled="False"/>
                     <ToggleButton Content="Disabled On" Width="120" Margin="0,0,8,8" IsChecked="True" IsEnabled="False"/>
@@ -172,10 +172,10 @@
                              Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                              Margin="0,0,0,12"/>
 
-                  <TextBlock Text="Normal TextBox:" 
+                  <TextBlock Text="Normal TextBox:"
                              Foreground="{StaticResource Brushes.PanelForeground.Primary}"
                              Margin="0,0,0,8"/>
-                  <TextBox Text="Enter text here..." Margin="0,0,0,12"/>
+                  <TextBox Text="Enter text here..." Margin="0,0,0,12" HorizontalContentAlignment="Center"/>
 
                   <TextBlock Text="Multi-line TextBox:" 
                              Foreground="{StaticResource Brushes.PanelForeground.Primary}"
