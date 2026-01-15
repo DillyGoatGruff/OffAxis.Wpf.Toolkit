@@ -102,8 +102,9 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.InputBackground.Static}"/>
               <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.Border.Static}"/>
+              <Setter Property="CornerRadius" TargetName="templateRoot" Value="{DynamicResource ComboBox.CornerRadius.Static}"/>
               <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource Brushes.Background.Static}"/>
-              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Brushes.Border.Static}"/>
+              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource Brushes.Border.Static}"/>
               <Setter Property="Border.CornerRadius" Value="{DynamicResource ComboBox.CornerRadius.Static}"/>
             </MultiDataTrigger>
             <Trigger Property="IsMouseOver" Value="true">
@@ -127,8 +128,9 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.InputBackground.MouseOver}"/>
               <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.Border.MouseOver}"/>
+              <Setter Property="CornerRadius" TargetName="templateRoot" Value="{DynamicResource ComboBox.CornerRadius.MouseOver}"/>
               <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource Brushes.Background.MouseOver}"/>
-              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Brushes.Border.MouseOver}"/>
+              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource Brushes.Border.MouseOver}"/>
             </MultiDataTrigger>
             <Trigger Property="IsPressed" Value="true">
               <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource ComboBox.Brushes.Glyph.Pressed}"/>
@@ -148,10 +150,10 @@
                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
               </MultiDataTrigger.Conditions>
               <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.InputBackground.Pressed}"/>
-              <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource Brushes.Border.Pressed}"/>
+              <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.Border.Pressed}"/>
               <Setter Property="CornerRadius" TargetName="templateRoot" Value="{DynamicResource ComboBox.CornerRadius.Pressed}"/>
               <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource Brushes.Background.Pressed}"/>
-              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Brushes.Border.Pressed}"/>
+              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource Brushes.Border.Pressed}"/>
             </MultiDataTrigger>
             <Trigger Property="IsEnabled" Value="false">
               <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource ComboBox.Brushes.Glyph.Disabled}"/>
@@ -171,9 +173,10 @@
                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
               </MultiDataTrigger.Conditions>
               <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.InputBackground.Disabled}"/>
-              <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource Brushes.Border.Disabled}"/>
+              <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Brushes.Border.Disabled}"/>
+              <Setter Property="CornerRadius" TargetName="templateRoot" Value="{DynamicResource ComboBox.CornerRadius.Disabled}"/>
               <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource Brushes.Background.Disabled}"/>
-              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Brushes.Border.Disabled}"/>
+              <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource Brushes.Border.Disabled}"/>
             </MultiDataTrigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
