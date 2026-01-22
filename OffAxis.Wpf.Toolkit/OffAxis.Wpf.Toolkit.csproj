@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
@@ -19,7 +19,7 @@
     <RepositoryType>git</RepositoryType>
     <LicenseExpression>MIT</LicenseExpression>
     <PackageProjectUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</PackageProjectUrl>
-    <ReadmeFile>README.md</ReadmeFile>
+    <ReadmeFile>../README.md</ReadmeFile>
   </PropertyGroup>
 
   <!-- Disable PDBs in Release to avoid Just My Code prompt -->
@@ -30,7 +30,7 @@
 
   <!-- Include README in NuGet package -->
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true"/>
   </ItemGroup>
 
 </Project>
