@@ -19,7 +19,7 @@
     <RepositoryType>git</RepositoryType>
     <LicenseExpression>MIT</LicenseExpression>
     <PackageProjectUrl>https://github.com/DillyGoatGruff/OffAxis.Wpf.Toolkit</PackageProjectUrl>
-    <ReadmeFile>../README.md</ReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <!-- Disable PDBs in Release to avoid Just My Code prompt -->
@@ -30,7 +30,7 @@
 
   <!-- Include README in NuGet package -->
   <ItemGroup>
-    <None Include="..\README.md" Pack="true"/>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
