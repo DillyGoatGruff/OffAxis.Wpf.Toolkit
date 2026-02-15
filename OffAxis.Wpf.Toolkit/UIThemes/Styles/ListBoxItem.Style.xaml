@@ -9,11 +9,11 @@
   <CornerRadius x:Key="ListBoxItem.CornerRadius.Disabled">0</CornerRadius>
 
   <!-- Default BorderThickness -->
-  <CornerRadius x:Key="ListBoxItem.BorderThickness.Static">1</CornerRadius>
-  <CornerRadius x:Key="ListBoxItem.BorderThickness.Checked">1</CornerRadius>
-  <CornerRadius x:Key="ListBoxItem.BorderThickness.MouseOver">1</CornerRadius>
-  <CornerRadius x:Key="ListBoxItem.BorderThickness.CheckedMouseOver">1</CornerRadius>
-  <CornerRadius x:Key="ListBoxItem.BorderThickness.Disabled">1</CornerRadius>
+  <Thickness x:Key="ListBoxItem.BorderThickness.Static">1</Thickness>
+  <Thickness x:Key="ListBoxItem.BorderThickness.Checked">1</Thickness>
+  <Thickness x:Key="ListBoxItem.BorderThickness.MouseOver">1</Thickness>
+  <Thickness x:Key="ListBoxItem.BorderThickness.CheckedMouseOver">1</Thickness>
+  <Thickness x:Key="ListBoxItem.BorderThickness.Disabled">1</Thickness>
 
   <Style x:Key="ListBoxItem.Style" TargetType="{x:Type ListBoxItem}">
     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
