@@ -8,12 +8,19 @@
   <CornerRadius x:Key="ListBoxItem.CornerRadius.CheckedMouseOver">0</CornerRadius>
   <CornerRadius x:Key="ListBoxItem.CornerRadius.Disabled">0</CornerRadius>
 
+  <!-- Default BorderThickness -->
+  <CornerRadius x:Key="ListBoxItem.BorderThickness.Static">1</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.BorderThickness.Checked">1</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.BorderThickness.MouseOver">1</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.BorderThickness.CheckedMouseOver">1</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.BorderThickness.Disabled">1</CornerRadius>
+
   <Style x:Key="ListBoxItem.Style" TargetType="{x:Type ListBoxItem}">
     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
     <Setter Property="Padding" Value="0,2,0,2"/>
     <Setter Property="Border.CornerRadius" Value="{DynamicResource ListBoxItem.CornerRadius.Static}"/>
     <Setter Property="Background" Value="Transparent"/>
-    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BorderThickness" Value="{DynamicResource ListBoxItem.BorderThickness.Static}"/>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -30,15 +37,24 @@
           <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
               <Setter Property="Border.CornerRadius" Value="{DynamicResource ListBoxItem.CornerRadius.MouseOver}"/>
+              <Setter Property="BorderThickness" Value="{DynamicResource ListBoxItem.BorderThickness.MouseOver}"/>
               <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.MouseOver}"/>
               <Setter Property="Background" Value="{DynamicResource Brushes.Background.MouseOver}"/>
               <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.MouseOver}"/>
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
               <Setter Property="Border.CornerRadius" Value="{DynamicResource ListBoxItem.CornerRadius.Checked}"/>
+              <Setter Property="BorderThickness" Value="{DynamicResource ListBoxItem.BorderThickness.Checked}"/>
               <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.Pressed}"/>
               <Setter Property="Background" Value="{DynamicResource Brushes.Background.Pressed}"/>
               <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Pressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Border.CornerRadius" Value="{DynamicResource ListBoxItem.CornerRadius.Disabled}"/>
+              <Setter Property="BorderThickness" Value="{DynamicResource ListBoxItem.BorderThickness.Disabled}"/>
+              <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.Disabled}"/>
+              <Setter Property="Background" Value="{DynamicResource Brushes.Background.Disabled}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Disabled}"/>
             </Trigger>
             <MultiTrigger>
               <MultiTrigger.Conditions>
@@ -47,6 +63,7 @@
               </MultiTrigger.Conditions>
               <MultiTrigger.Setters>
                 <Setter Property="Border.CornerRadius" Value="{DynamicResource ListBoxItem.CornerRadius.CheckedMouseOver}"/>
+                <Setter Property="BorderThickness" Value="{DynamicResource ListBoxItem.BorderThickness.CheckedMouseOver}"/>
                 <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.CheckedMouseOver}"/>
                 <Setter Property="Background" Value="{DynamicResource Brushes.Background.CheckedMouseOver}"/>
                 <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.CheckedMouseOver}"/>
