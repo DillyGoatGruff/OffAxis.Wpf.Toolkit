@@ -1,0 +1,59 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- Default CornerRadius -->
+  <CornerRadius x:Key="ListBoxItem.CornerRadius.Static">0</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.CornerRadius.Checked">0</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.CornerRadius.MouseOver">0</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.CornerRadius.CheckedMouseOver">0</CornerRadius>
+  <CornerRadius x:Key="ListBoxItem.CornerRadius.Disabled">0</CornerRadius>
+
+  <Style x:Key="ListBoxItem.Style" TargetType="{x:Type ListBoxItem}">
+    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    <Setter Property="Padding" Value="0,2,0,2"/>
+    <Setter Property="Border.CornerRadius" Value="{DynamicResource ListBoxItem.CornerRadius.Static}"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="IsSelected" Value="{Binding IsSwitchContactSelected, Mode=OneWay}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+          <Border Padding="{TemplateBinding Padding}"
+                  CornerRadius="{TemplateBinding Border.CornerRadius}"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  SnapsToDevicePixels="True">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.MouseOver}"/>
+              <Setter Property="Background" Value="{DynamicResource Brushes.Background.MouseOver}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.MouseOver}"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+              <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.Pressed}"/>
+              <Setter Property="Background" Value="{DynamicResource Brushes.Background.Pressed}"/>
+              <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.Pressed}"/>
+            </Trigger>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="IsSelected" Value="True"/>
+                <Condition Property="IsMouseOver" Value="True"/>
+              </MultiTrigger.Conditions>
+              <MultiTrigger.Setters>
+                <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Border.CheckedMouseOver}"/>
+                <Setter Property="Background" Value="{DynamicResource Brushes.Background.CheckedMouseOver}"/>
+                <Setter Property="Foreground" Value="{DynamicResource Brushes.Foreground.CheckedMouseOver}"/>
+              </MultiTrigger.Setters>
+            </MultiTrigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+</ResourceDictionary>
